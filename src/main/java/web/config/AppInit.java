@@ -29,13 +29,11 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     }
 
 
-
     @Override
     public void onStartup(ServletContext aServletContext) throws ServletException {
         super.onStartup(aServletContext);
         registerHiddenFieldFilter(aServletContext);
     }
-
 
 
     private void registerHiddenFieldFilter(ServletContext aContext) {

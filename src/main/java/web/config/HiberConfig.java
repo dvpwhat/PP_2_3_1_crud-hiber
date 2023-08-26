@@ -40,7 +40,7 @@ public class HiberConfig {
     public LocalContainerEntityManagerFactoryBean getEntityManager() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 
-        Properties props=new Properties();
+        Properties props = new Properties();
         props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 
@@ -52,7 +52,7 @@ public class HiberConfig {
     }
 
     @Bean
-    public PlatformTransactionManager getPlatformTransactionManager(){
+    public PlatformTransactionManager getPlatformTransactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(getEntityManager().getObject());
         return transactionManager;

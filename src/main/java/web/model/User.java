@@ -1,6 +1,7 @@
 package web.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -18,7 +19,7 @@ public class User {
     public User() {
     }
 
-    public User( String name,  String lastName) {
+    public User(String name, String lastName) {
         this.name = name;
 
         this.lastName = lastName;
@@ -49,5 +50,23 @@ public class User {
         this.lastName = lastName;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        User user = (User) o;
+
+        if (id != user.id) return false;
+        if (!Objects.equals(name, user.name)) return false;
+        return Objects.equals(lastName, user.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        return result;
+    }
 }
