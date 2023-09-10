@@ -20,6 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
+
     @GetMapping(value = "/")
     public String showUser(Model model) {
         List<User> list = userService.getAllUsers();
