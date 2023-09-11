@@ -24,7 +24,12 @@ import java.util.Properties;
 @ComponentScan(value = "web")
 public class HiberConfig {
     @Autowired
-    private Environment env;
+    private final Environment env;
+
+    @Autowired
+    public HiberConfig(Environment env) {
+        this.env = env;
+    }
 
 
     @Bean
