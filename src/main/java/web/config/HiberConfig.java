@@ -23,8 +23,13 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan(value = "web")
 public class HiberConfig {
+
+    private final Environment env;
+
     @Autowired
-    private Environment env;
+    public HiberConfig(Environment env) {
+        this.env = env;
+    }
 
 
     @Bean
